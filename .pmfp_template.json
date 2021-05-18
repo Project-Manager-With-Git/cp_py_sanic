@@ -98,7 +98,7 @@
             "default_path": "{{ project_name }}/models"
         },
         "dockerfile": {
-            "source": "dockerfile",
+            "source": "dockerfile.jinja",
             "description": "构造sanic项目的dockerfile",
             "default_path": "dockerfile"
         }
