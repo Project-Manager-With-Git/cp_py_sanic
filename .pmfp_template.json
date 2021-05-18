@@ -33,16 +33,25 @@
     },
     "components": {
         "aiossecli": {
-            "source": "aiossecli.py",
+            "source": "aiossecli.py.jinja",
             "description": "sse的异步客户端模板",
             "default_path": "aiossecli.py"
         },
         "aiowscli": {
-            "source": "aiowscli.py",
+            "source": "aiowscli.py.jinja",
             "description": "websocket的异步客户端模板",
             "default_path": "aiowscli.py"
         },
-
+        "ssecli": {
+            "source": "ssecli.py.jinja",
+            "description": "sse的同步客户端模板",
+            "default_path": "ssecli.py"
+        },
+        "wscli": {
+            "source": "wscli.py.jinja",
+            "description": "websocket的桶步客户端模板",
+            "default_path": "wscli.py"
+        },
         "apis": {
             "source": "app/apis",
             "description": "RESTful接口组件模板",
