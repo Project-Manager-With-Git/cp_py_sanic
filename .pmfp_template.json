@@ -42,16 +42,7 @@
             "description": "websocket的异步客户端模板",
             "default_path": "aiowscli.py"
         },
-        "ssecli": {
-            "source": "ssecli.py",
-            "description": "sse的同步客户端模板",
-            "default_path": "ssecli.py"
-        },
-        "wscli": {
-            "source": "wscli.py",
-            "description": "websocket的桶步客户端模板",
-            "default_path": "wscli.py"
-        },
+
         "apis": {
             "source": "app/apis",
             "description": "RESTful接口组件模板",
@@ -96,21 +87,6 @@
             "source": "app/models",
             "description": "sanic使用的异步的orm定义数据模型的组件",
             "default_path": "{{ project_name }}/models"
-        },
-        "main": {
-            "source": "app/__main__.py.jinja",
-            "description": "sanic项目的模块的入口组件",
-            "default_path": "{{ project_name }}/__main__.py"
-        },
-        "init": {
-            "source": "app/__init__.py.jinja",
-            "description": "sanic项目的模块__init__.py文件",
-            "default_path": "{{ project_name }}/__init__.py"
-        },
-        "docker-compose": {
-            "source": "cp_dockercompose//server_standalone",
-            "description": "通用的服务使用的dockercompose,适用于调试",
-            "default_path": "docker-compose.yml"
         },
         "dockerfile": {
             "source": "dockerfile",
