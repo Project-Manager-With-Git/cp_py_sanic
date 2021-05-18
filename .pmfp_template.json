@@ -1,0 +1,121 @@
+{
+    "language": "py",
+    "description": "sanic相关的组件集合",
+    "author": "hsz",
+    "template_type": "components",
+    "requires": [
+        "sanic >= 21.3.4",
+        "jsonschema >= 3.2.0",
+        "pyloggerhelper >= 0.0.2",
+        "sanic-openapi >= 21.3.1",
+        "sanic_sse >= 0.3.1",
+        "websockets >= 8.1",
+        "sanic-testing >= 0.4.0",
+        "tortoise-orm >= 0.17.2",
+        "sseclient >= 0.0.27",
+        "aiohttp-sse-client >= 0.2.1",
+        "websocket-client >= 0.59.0"
+    ],
+    "test_requires": [
+        "coverage >= 5.5",
+        "mypy >= 0.800",
+        "autopep8 >= 1.5.6",
+        "pylint >= 2.8.0",
+        "pydocstyle>=6.0.0",
+        "requests >= 2.25.1",
+        "aiounittest >= 1.4.0"
+    ],
+    "template_keys": {
+        "app_name": {
+            "description": "应用名",
+            "default": "{{ project_name }}"
+        }
+    },
+    "components": {
+        "aiossecli": {
+            "source": "aiossecli.py",
+            "description": "sse的异步客户端模板",
+            "default_path": "aiossecli.py"
+        },
+        "aiowscli": {
+            "source": "aiowscli.py",
+            "description": "websocket的异步客户端模板",
+            "default_path": "aiowscli.py"
+        },
+        "ssecli": {
+            "source": "ssecli.py",
+            "description": "sse的同步客户端模板",
+            "default_path": "ssecli.py"
+        },
+        "wscli": {
+            "source": "wscli.py",
+            "description": "websocket的桶步客户端模板",
+            "default_path": "wscli.py"
+        },
+        "apis": {
+            "source": "app/apis",
+            "description": "RESTful接口组件模板",
+            "default_path": "{{ project_name }}/apis"
+        },
+        "channels": {
+            "source": "app/channels",
+            "description": "使用sse构造的pub/sub接口组件模板",
+            "default_path": "{{ project_name }}/channels"
+        },
+        "decorators": {
+            "source": "app/decorators/__init__.py.jinja",
+            "description": "装饰器组件模板",
+            "default_path": "{{ project_name }}/decorators/__init__.py"
+        },
+        "decorator_checkjsonschema": {
+            "source": "app/decorators/checkjsonschema.py.jinja",
+            "description": "通过jsonschema校验请求body的装饰器",
+            "default_path": "{{ project_name }}/decorators/checkjsonschema.py"
+        },
+        "downloads": {
+            "source": "app/downloads",
+            "description": "使用stream构造下载项目的组件",
+            "default_path": "{{ project_name }}/downloads"
+        },
+        "listeners": {
+            "source": "app/listeners",
+            "description": "sanic的hooks定义",
+            "default_path": "{{ project_name }}/listeners"
+        },
+        "middlewares": {
+            "source": "app/middlewares",
+            "description": "sanic的中间件定义",
+            "default_path": "{{ project_name }}/middlewares"
+        },
+        "ws": {
+            "source": "app/ws",
+            "description": "sanic的websocket接口定义",
+            "default_path": "{{ project_name }}/ws"
+        },
+        "models": {
+            "source": "app/models",
+            "description": "sanic使用的异步的orm定义数据模型的组件",
+            "default_path": "{{ project_name }}/models"
+        },
+        "main": {
+            "source": "app/__main__.py.jinja",
+            "description": "sanic项目的模块的入口组件",
+            "default_path": "{{ project_name }}/__main__.py"
+        },
+        "init": {
+            "source": "app/__init__.py.jinja",
+            "description": "sanic项目的模块__init__.py文件",
+            "default_path": "{{ project_name }}/__init__.py"
+        },
+        "docker-compose": {
+            "source": "cp_dockercompose//server_standalone",
+            "description": "通用的服务使用的dockercompose,适用于调试",
+            "default_path": "docker-compose.yml"
+        },
+        "dockerfile": {
+            "source": "dockerfile",
+            "description": "构造sanic项目的dockerfile",
+            "default_path": "dockerfile"
+        }
+    }
+}
