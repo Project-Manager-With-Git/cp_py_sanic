@@ -1,0 +1,7 @@
+from sanic import Blueprint
+from .listsource import ListSource
+from .source import Source
+
+{{ apinamespace }}namespace = Blueprint("{{ api_name }}", url_prefix="/{{ api_name }}", version="1_0_0")
+{{ apinamespace }}namespace.add_route(ListSource.as_view(), "/")
+{{ apinamespace }}namespace.add_route(Source.as_view(), "/<uid:int>")

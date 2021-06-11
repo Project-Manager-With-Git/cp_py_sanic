@@ -1,9 +1,9 @@
 from sanic import Sanic, Blueprint
-from .tables import tables
+from .tablenamespace import tablenamespace
 
-downloads = Blueprint.group(tables, url_prefix="/downloads")
+download = Blueprint.group(tablenamespace, url_prefix="/download")
 
 
 def init_downloads(app: Sanic) -> Sanic:
-    app.blueprint(downloads)
+    app.blueprint(download)
     return app

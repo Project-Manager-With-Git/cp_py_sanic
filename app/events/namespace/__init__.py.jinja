@@ -1,0 +1,7 @@
+from sanic import Blueprint
+from .listsource import ListSource
+from .source import Source
+
+{{ eventnamespace }}namespace = Blueprint("{{ eventnamespace }}", url_prefix="/{{ eventnamespace }}", version="1_0_0")
+{{ eventnamespace }}namespace.add_route(ListSource.as_view(), "/")
+{{ eventnamespace }}namespace.add_route(Source.as_view(), "/<channelid:string>", strict_slashes=True)

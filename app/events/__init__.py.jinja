@@ -1,0 +1,8 @@
+from sanic import Sanic, Blueprint
+from .{{ eventnamespace }}namespace import {{ eventnamespace }}namespace
+
+events = Blueprint.group({{ eventnamespace }}namespace, url_prefix="/event")
+
+def init_events(app: Sanic) -> Sanic:
+    app.blueprint(events)
+    return app

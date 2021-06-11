@@ -29,6 +29,34 @@
         "app_name": {
             "description": "应用名",
             "default": "{{ project_name }}"
+        },
+        "api_name": {
+            "description": "应用名",
+            "default": "simpleapi"
+        },
+        "apinamespace": {
+            "description": "api命名空间名",
+            "default": "ns"
+        },
+        "downloadnamespace": {
+            "description": "下载命名空间名",
+            "default": "ns"
+        },
+        "eventnamespace": {
+            "description": "事件命名空间名",
+            "default": "ns"
+        },
+        "author": {
+            "description": "作者",
+            "default": "{{ author }}"
+        },
+        "author_email": {
+            "description": "作者",
+            "default": "{{ author_email }}"
+        },
+        "version": {
+            "description": "项目版本",
+            "default": "{{ version }}"
         }
     },
     "components": {
@@ -52,15 +80,35 @@
             "description": "websocket的桶步客户端模板",
             "default_path": "wscli.py"
         },
+        "apis_init": {
+            "source": "app/apis/__init__.py.jinja",
+            "description": "RESTfulapi的存放位置",
+            "default_path": "{{ project_name }}/apis/__init__.py"
+        },
+        "apis_namespace": {
+            "source": "app/apis/namespace",
+            "description": "RESTfulapi的存放位置",
+            "default_path": "{{ project_name }}/apis/{{ apinamespace }}namespace"
+        },
         "apis": {
             "source": "app/apis",
             "description": "RESTful接口组件模板",
             "default_path": "{{ project_name }}/apis"
         },
-        "channels": {
-            "source": "app/channels",
+        "events_init": {
+            "source": "app/events/__init__.py.jinja",
             "description": "使用sse构造的pub/sub接口组件模板",
-            "default_path": "{{ project_name }}/channels"
+            "default_path": "{{ project_name }}/events/__init__.py"
+        },
+        "events_namespace": {
+            "source": "app/events/namespace",
+            "description": "使用sse构造的pub/sub接口组件模板",
+            "default_path": "{{ project_name }}/events/{{ eventnamespace }}namespace"
+        },
+        "events": {
+            "source": "app/events",
+            "description": "使用sse构造的pub/sub接口组件模板",
+            "default_path": "{{ project_name }}/events"
         },
         "decorators": {
             "source": "app/decorators/__init__.py.jinja",
@@ -71,6 +119,16 @@
             "source": "app/decorators/checkjsonschema.py.jinja",
             "description": "通过jsonschema校验请求body的装饰器",
             "default_path": "{{ project_name }}/decorators/checkjsonschema.py"
+        },
+        "downloads_init": {
+            "source": "app/downloads/__init__.py.jinja",
+            "description": "使用stream构造下载项目的组件",
+            "default_path": "{{ project_name }}/downloads/__init__.py"
+        },
+        "downloads_namespace": {
+            "source": "app/downloads/namespace",
+            "description": "使用stream构造下载项目的组件",
+            "default_path": "{{ project_name }}/downloads/{{ eventnamespace }}namespace"
         },
         "downloads": {
             "source": "app/downloads",
@@ -96,11 +154,6 @@
             "source": "app/models",
             "description": "sanic使用的异步的orm定义数据模型的组件",
             "default_path": "{{ project_name }}/models"
-        },
-        "dockerfile": {
-            "source": "dockerfile.jinja",
-            "description": "构造sanic项目的dockerfile",
-            "default_path": "dockerfile"
         }
     }
 }

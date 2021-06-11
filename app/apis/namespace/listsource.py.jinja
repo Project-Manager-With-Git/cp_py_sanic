@@ -4,22 +4,10 @@ from sanic.views import HTTPMethodView
 from sanic_openapi import doc
 from ...decorators.checkjsonschema import checkjsonschema
 from ...models import User
-
-post_query_schema = {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "additionalProperties": False,
-    "required": ["name"],
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "用户注册名"
-        }
-    }
-}
+from .schema import post_query_schema
 
 
-class UserListSource(HTTPMethodView):
+class ListSource(HTTPMethodView):
 
     @doc.summary("user接口总览")
     async def get(self, _: Request) -> HTTPResponse:
