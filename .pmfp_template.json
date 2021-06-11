@@ -154,6 +154,11 @@
             "source": "app/models",
             "description": "sanic使用的异步的orm定义数据模型的组件",
             "default_path": "{{ project_name }}/models"
+        },
+        "main": {
+            "source": "app/__main__.py.jinja",
+            "description": "sanic项目的模块的入口组件",
+            "default_path": "{{ project_name }}/__main__.py"
         }
     }
 }
